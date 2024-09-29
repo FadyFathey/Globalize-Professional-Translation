@@ -1,0 +1,121 @@
+html {
+	overflow-y: scroll;
+	height: 100%;
+}
+body {
+	overflow-y: visible;
+	position: relative;
+    height: unset;
+}
+html, body {
+	overflow-x: hidden;
+	margin: 0;
+}
+
+/* Container for panels */
+.gsapcontainer {
+    position: relative;
+	width: 400%; /* Adjusted for 4 panels */
+	height: 100vh;
+	display: flex;
+	flex-wrap: nowrap;
+	scroll-snap-type: x mandatory; /* Enforces scroll snapping */
+	overflow-x: scroll; /* Enables horizontal scrolling */
+	scroll-behavior: smooth; /* Smooth scrolling between panels */
+}
+
+/* Panel styles */
+.panel {
+    position: relative;
+    overflow: hidden;
+	width: 100vw; /* Adjusts to the viewport width */
+    height: 100vh; /* Adjusts to the viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers content vertically */
+    position: relative;
+    box-sizing: border-box;
+    scroll-snap-align: start; /* Ensures snapping to start of each panel */
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centering the text properly */
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Arial', sans-serif;
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.overlay-text p {
+    margin: 0;
+}
+
+/* Video styling */
+.video-element {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .video-element {
+      height: 50% !important; /* Adjust the height as needed for smaller screens */
+    }
+}
+@media (max-width: 600px) {
+    .video-element {
+      height: 40% !important; /* Adjust the height as needed for smaller screens */
+    }
+}
+
+/* Image styling */
+.image-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures content covers the whole area */
+}
+
+/* Responsive adjustments for overlay-text */
+@media screen and (max-width: 1200px) {
+    .overlay-text {
+        font-size: 1.75em;
+        padding: 15px 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .overlay-text {
+        font-size: 1.5em;
+        padding: 10px 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .overlay-text {
+        font-size: 1.2em;
+        padding: 8px 15px;
+    }
+}
+
+/* Responsive adjustments for video */
+@media screen and (max-width: 1200px) {
+    .video-element {
+        height: auto;
+        max-height: 100vh;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .video-element {
+        height: auto;
+        max-height: 100vh;
+    }
+}
